@@ -1,4 +1,4 @@
-#  The Third section will query each computer in the ListOfComputers.txt to get the members of the local group Administrators
+#  The Third section will query each computer in the Servers.txt to get the members of the local group Administrators
 #  Found @ https://stackoverflow.com/questions/21288220/get-all-local-members-and-groups-displayed-together
 #  Changed Path on Servers and Output
 #  Added Progress Bar for Servers and Members
