@@ -18,17 +18,18 @@ foreach($server in $Servers)
     for ($I = 1; $I -le 100; $I++ )
 #    {
 #    Write-Host "Powershell Script In Progress $I% Complete"; << This is wrong but, great learning experience to write out $I as a percent to the console...
-    {Write-Progress -Activity "Powershell Script In Progress-Servers " -Status "$I% Complete:" -PercentComplete $I;} ###<<<This line works just needed to comment out the For $I For Loop
+    {Write-Progress -Activity "Powershell Script In Progress-Servers...checking on Members... " -Status "$I% Complete:" -PercentComplete $I;} ###<<<This line works just needed to comment out the For $I For Loop
 
         $admins = @()
         $group =[ADSI]"WinNT://$server/$objgroupname" 
         $members = @($group.psbase.Invoke("Members"))
-        for($J = 1; $J -lt 100; $J++ )
-        {Write-Progress -Activity "Powershell Script In Progress-Members " -Status "$J% Complete:" -PercentComplete $J;}    
             $members | foreach {
-                $obj = new-object psobject -Property @{
-                Server = $Server
-                Admin = $_.GetType().InvokeMember("Name", 'GetProperty', $null, $_, $null)
+                for($J = 1; $J -lt 100; $J++ )
+                    {Write-Progress -Activity "Powershell Script In Progress-Members " -Status "$J% Complete:" -PercentComplete $J;}    
+
+                    $obj = new-object psobject -Property @{
+                    Server = $Server
+                    Admin = $_.GetType().InvokeMember("Name", 'GetProperty', $null, $_, $null)
             }
 
 
