@@ -3,8 +3,8 @@
 #  Changed Path on Servers and Output
 #  Added Progress Bar for Servers and Members
 
-$Servers=Get-Content -Path "C:\Users\takakit\Desktop\PowerShellScripts\GetLocalGroupsAdmin\Servers.txt" 
-$output = 'C:\Users\takakit\Desktop\PowerShellScripts\GetLocalGroupsAdmin\LocalAdmins.csv'
+$Servers=Get-Content -Path "C:\Servers.txt" 
+$output = 'C:\LocalAdmins.csv'
 $results = @()
 
 $objSID = New-Object System.Security.Principal.SecurityIdentifier("S-1-5-32-544")
